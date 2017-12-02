@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my mvvm</title>
+</head>
+<script src="./lib/babel.js"></script>
+
+<body>
+
+<div id="mvvm-app">
+    <input type="text" v-model="someStr">
+  
+    <p>{{someStr}}</p> 
+</div>
+
+<script  type="module">
+    import mvvm from './myjs/mvvm.js'
+    var vm = new mvvm({
+        el: '#mvvm-app',
+        data: {
+            someStr: 'hello '
+        },
+
+        computed: {
+            getHelloWord: function() {
+                return this.someStr + this.child.someStr;
+            }
+        },
+
+        methods: {
+            clickBtn: function(e) {
+                var randomStrArr = ['childOne', 'childTwo', 'childThree'];
+                this.child.someStr = randomStrArr[parseInt(Math.random() * 3)];
+            }
+        }
+    })
+    console.log(vm.$data)
+    vm.$data.someStr = 'hello word'
+</script>
+
+</body>
+</html>
