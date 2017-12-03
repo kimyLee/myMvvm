@@ -10,12 +10,11 @@
 
 <div id="mvvm-app">
     <input type="text" v-model="someStr">
-  
     <p>{{someStr}}</p> 
 </div>
 
 <script  type="module">
-    import mvvm from './myjs/mvvm.js'
+    import mvvm from './myjs/mvvm.js?v=98933'
     var vm = new mvvm({
         el: '#mvvm-app',
         data: {
@@ -36,7 +35,7 @@
         }
     })
     console.log(vm.$data)
-    vm.$data.someStr = 'hello word'
+    // vm.$data.someStr = 'hello word'
 </script>
 
 </body>

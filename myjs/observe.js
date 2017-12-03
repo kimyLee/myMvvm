@@ -26,8 +26,9 @@ export default class observer {
             return val;
         },
         set: (newVal) => {
+            console.log('执行一次set')
             Deper.fire()                         // 通知订阅者    
-            console.log('我也监听到值变化了 ', val, ' --> ', newVal);
+            // console.log('我也监听到值变化了 ', val, ' --> ', newVal);
             val = newVal;
         }
     });

@@ -8,12 +8,13 @@ export default class watcher {
     // this.observe(data)
   }
   update () {
+    // console.log('carry')
     let value = this.get();              // 取到最新值
     let oldVal = this.value;
-    if (value !== oldVal) {
+    // if (value !== oldVal) {
         this.value = value;
-        this.cb(this.vm, value, oldVal); // 执行Compile中绑定的回调，更新视图
-    }
+        this.cb(value, oldVal); // 执行Compile中绑定的回调，更新视图
+    // }
   }
   // 监听到有新值时候处理
   get () {
